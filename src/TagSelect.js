@@ -26,7 +26,7 @@ class TagSelect extends React.Component {
     // Callbacks
     onMaxError: PropTypes.func,
     onItemPress: PropTypes.func,
-
+    
     // Styles
     containerStyle: ViewPropTypes.style
   }
@@ -110,6 +110,14 @@ class TagSelect extends React.Component {
         }
       }
     })
+  }
+
+  /**
+   * Clear all items were selected
+   * @return {Void}
+   */
+  clear = () => {
+    this.setState({ value: [] });
   }
 
   render () {
