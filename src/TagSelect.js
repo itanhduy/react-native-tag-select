@@ -89,24 +89,8 @@ class TagSelect extends React.Component {
    */
   handleSelectItem = (item) => {
     const key = item[this.props.keyAttr] || item
-
     const value = { ...this.state.value }
-    const found = this.state.value[key]
-
-    // Item is on array, so user is removing the selection
-    if (found) {
-      delete value[key]
-    } else {
-      // User is adding but has reached the max number permitted
-      if (this.props.max && this.totalSelected >= this.props.max) {
-        if (this.props.onMaxError) {
-          return this.props.onMaxError()
-        }
-      }
-
-      value[key] = item
-    }
-
+    value[key] = item
     return this.setState({ value }, () => {
       if (this.props.onItemPress) {
         this.props.onItemPress(item)
