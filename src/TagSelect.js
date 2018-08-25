@@ -90,6 +90,12 @@ class TagSelect extends React.Component {
   handleSelectItem = (item) => {
     const key = item[this.props.keyAttr] || item
     const value = { ...this.state.value }
+    const found = this.state.value[key]
+
+    if(found) {
+      return delete value[key]
+    }
+
     value[key] = item
     return this.setState({ value }, () => {
       if (this.props.onItemPress) {
