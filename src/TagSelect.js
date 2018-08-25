@@ -93,7 +93,7 @@ class TagSelect extends React.Component {
     const found = this.state.value[key]
 
     if(found) {
-      return delete value[key]
+      delete value[key]
     } else {
       value[key] = item
     }
