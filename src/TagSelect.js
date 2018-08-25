@@ -103,7 +103,11 @@ class TagSelect extends React.Component {
 
     return this.setState({ value }, () => {
       if (this.props.onItemPress) {
-        this.props.onItemPress(item)
+        if(found) {
+          this.props.onItemPress()
+        } else {
+          this.props.onItemPress(item)
+        }
       }
     })
   }
