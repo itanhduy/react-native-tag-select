@@ -95,6 +95,9 @@ class TagSelect extends React.Component {
     if(found) {
       delete value[key]
     } else {
+      if(Object.is(this.props.max, 1) && this.totalSelected >= this.props.max) {
+        value = {};
+      }
       value[key] = item
     }
 
